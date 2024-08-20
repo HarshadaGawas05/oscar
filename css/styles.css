@@ -1,0 +1,46 @@
+.card {
+  display: grid;
+}
+
+.hidden {
+  display: none;
+}
+
+#searchResults {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  /* Creates responsive columns that fit the screen size */
+  gap: 1.5rem;
+  /* Adds space between the grid items */
+  padding: 1rem;
+  width: 100%;
+  /* Full width container for results */
+}
+
+.search-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.2s ease;
+}
+
+.search-result img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.search-result p {
+  margin: 0.5rem 0;
+  text-align: center;
+  /* Center the text within each result */
+}

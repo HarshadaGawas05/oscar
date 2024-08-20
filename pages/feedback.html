@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Leave a Comment</title>
+    <!-- Add Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js"></script>
+    <!-- <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js"></script> -->
+    <script>
+      //Web app's Firebase configuration
+      const firebaseConfig = {
+        apiKey: "AIzaSyAuKHF-dytw0zmB_QjgtgoV8KLwz3bEcMk",
+        authDomain: "oscar-5497d.firebaseapp.com",
+        databaseURL: "https://oscar-5497d-default-rtdb.firebaseio.com",
+        projectId: "oscar-5497d",
+        storageBucket: "oscar-5497d.appspot.com",
+        messagingSenderId: "191732630216",
+        appId: "1:191732630216:web:7d9d2d34a8c88a26c55bfd",
+      };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+
+      // reference your database
+      var oscar = firebase.database().ref("oscarForm");
+
+      document
+        .getElementById("commentForm")
+        .addEventListener("submit", submitForm);
+
+      function submitForm(e) {
+        e.preventDefault();
+
+        var name = getElementVal("name");
+        var emailid = getElementVal("emailid");
+        var msgContent = getElementVal("msgContent");
+
+        saveMessages(name, emailid, msgContent);
+
+        //   enable alert
+        document.querySelector(".alert").style.display = "block";
+
+        //   remove the alert
+        setTimeout(() => {
+          document.querySelector(".alert").style.display = "none";
+        }, 3000);
+
+        //   reset the form
+        document.getElementById("commentForm").reset();
+      }
+
+      const saveMessages = (name, emailid, msgContent) => {
+        var newCommentForm = commentFormDB.push();
+
+        newCommentForm.set({
+          name: name,
+          emailid: emailid,
+          msgContent: msgContent,
+        });
+      };
+
+      const getElementVal = (id) => {
+        return document.getElementById(id).value;
+      };
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <form action="" id="commentForm">
+        <div class="alert">Your message sent</div>
+
+        <div class="inputBox">
+          <input type="text" id="name" placeholder="Your name...." />
+        </div>
+
+        <div class="inputBox">
+          <input type="email" id="emailid" placeholder="Your Email....." />
+        </div>
+
+        <div class="inputBox">
+          <textarea
+            id="msgContent"
+            cols="30"
+            rows="10"
+            placeholder="Message"
+          ></textarea>
+        </div>
+
+        <div class="inputBox">
+          <button type="submit">Submit</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

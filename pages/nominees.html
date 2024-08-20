@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Oscars 2024 - Nominees</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    
+    <style>
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .category-header h2 {
+            margin: 0;
+        }
+        .arrow {
+            cursor: pointer;
+            font-size: 24px;
+        }
+        .nominee-carousel {
+            overflow-x: auto;
+            white-space: nowrap;
+            padding: 1rem 0;
+        }
+        .nominee-card {
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+            margin-right: 1rem;
+            border: 1px solid #dee2e6;
+            border-radius: 0.25rem;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .nominee-image {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .nominee-card-body {
+            padding: 1.25rem;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="p-3 mb-3 border-bottom">
+      <!-- Header -->
+      <div class="container">
+        <div
+          class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
+        >
+          <a
+            href="/"
+            class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none"
+          >
+            <svg
+              class="bi me-2"
+              width="40"
+              height="32"
+              role="img"
+              aria-label="Bootstrap"
+            >
+              <use xlink:href="#bootstrap"></use>
+            </svg>
+          </a>
+
+          <ul
+            class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0"
+          >
+            <li>
+              <a href="index.html" class="nav-link px-2 link-secondary">Home</a>
+            </li>
+            <li>
+              <a href="winners.html" class="nav-link px-2 link-secondary"
+                >Winners</a
+              >
+            </li>
+            <li>
+              <a href="nominees.html" class="nav-link px-2 link-dark"
+                >Nominees</a
+              >
+            </li>
+            <li>
+              <a href="highlights.html" class="nav-link px-2 link-dark"
+                >Event Highlights</a
+              >
+            </li>
+            <li>
+              <a href="feedback.html" class="nav-link px-2 link-dark"
+                >Feedback</a
+              >
+            </li>
+          </ul>
+
+          <form id="searchForm" class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+            <input
+              type="search"
+              id="searchInput"
+              class="form-control"
+              placeholder="Search..."
+              aria-label="Search"
+            />
+          </form>
+
+          <div class="dropdown text-end">
+            <a
+              href="#"
+              class="d-block link-dark text-decoration-none dropdown-toggle"
+              id="dropdownUser1"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="https://github.com/mdo.png"
+                alt="mdo"
+                width="32"
+                height="32"
+                class="rounded-circle"
+              />
+            </a>
+            <ul
+              class="dropdown-menu text-small"
+              aria-labelledby="dropdownUser1"
+            >
+              <li><a class="dropdown-item" href="#">New project...</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="#">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li><a class="dropdown-item" href="#">Sign out</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Centerd Area -->
+    <div class="bg-dark text-secondary px-4 py-5 text-center">
+      <div class="py-4">
+        <h1 class="display-5 fw-bold text-white">Oscar's '24 Nominees</h1>
+        <div class="col-lg-6 mx-auto">
+          <p class="fs-5 mb-4">
+            Discover the stars of the 2024 Oscars! This year’s nominees represent the pinnacle of cinematic achievement across various categories. Explore the contenders for Best Actor, Best Actress, Best Director, and more. Dive into their profiles, see their work, and let us know your favorites by leaving comments. Celebrate the art of filmmaking and join the conversation about this year's most anticipated awards.
+          </p>
+          <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+            <a href="#nominees-section" class="btn btn-outline-info btn-lg px-4 me-sm-3 fw-bold">View Nominees</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nominee-Section -->
+    <div class="container mt-5">
+        <div id="nominees-section">
+            <!-- Category 1: Best Actor -->
+            <div class="category">
+                <div class="category-header">
+                    <h2>Best Actor</h2>
+                    <div>
+                        <span class="arrow" onclick="scrollCategory('left', 'best-actor')">&#10094;</span>
+                        <span class="arrow" onclick="scrollCategory('right', 'best-actor')">&#10095;</span>
+                    </div>
+                </div>
+                <div class="nominee-carousel" id="best-actor">
+                    <!-- Nominee 1 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actor1.jpg" class="nominee-image" alt="Actor 1">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actor 1</h5>
+                            <p class="card-text">Movie: Movie Title 1</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Nominee 2 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actor2.jpg" class="nominee-image" alt="Actor 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actor 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Add more nominees here -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actor2.jpg" class="nominee-image" alt="Actor 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actor 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Nominee 3 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actor2.jpg" class="nominee-image" alt="Actor 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actor 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Nominee 4 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actor2.jpg" class="nominee-image" alt="Actor 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actor 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Nominee 5 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actor2.jpg" class="nominee-image" alt="Actor 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actor 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 2: Best Actress -->
+            <div class="category mt-5">
+                <div class="category-header">
+                    <h2>Best Actress</h2>
+                    <div>
+                        <span class="arrow" onclick="scrollCategory('left', 'best-actress')">&#10094;</span>
+                        <span class="arrow" onclick="scrollCategory('right', 'best-actress')">&#10095;</span>
+                    </div>
+                </div>
+                <div class="nominee-carousel" id="best-actress">
+                    <!-- Nominee 1 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actress1.jpg" class="nominee-image" alt="Actress 1">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actress 1</h5>
+                            <p class="card-text">Movie: Movie Title 1</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Nominee 2 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actress2.jpg" class="nominee-image" alt="Actress 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actress 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Add more nominees here -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actress2.jpg" class="nominee-image" alt="Actress 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actress 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Nominee 4 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actress2.jpg" class="nominee-image" alt="Actress 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actress 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                    <!-- Nominee 5 -->
+                    <div class="nominee-card">
+                        <img src="assets/images/actress2.jpg" class="nominee-image" alt="Actress 2">
+                        <div class="nominee-card-body">
+                            <h5 class="card-title">Actress 2</h5>
+                            <p class="card-text">Movie: Movie Title 2</p>
+                            <a href="feedback.html" class="btn btn-primary">Leave a Comment</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Category 3: Best Picture -->
+
+
+            <!-- Add more categories here -->
+        </div>
+    </div>
+
+    <script>
+        function scrollCategory(direction, categoryId) {
+            var container = document.getElementById(categoryId);
+            var scrollAmount = 300; // Amount to scroll per click
+
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else if (direction === 'right') {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+    </script>
+
+  </body>
+</html>
